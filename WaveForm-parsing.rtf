@@ -1,0 +1,66 @@
+{\rtf1\ansi\ansicpg1251\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset204 Segoe UI;}{\f1\fnil\fcharset0 Segoe UI;}{\f2\fnil\fcharset0 Consolas;}{\f3\fnil Consolas;}{\f4\fnil\fcharset204 Consolas;}{\f5\fnil\fcharset204 Segoe UI Semilight;}{\f6\fnil\fcharset0 Segoe UI Semilight;}}
+{\colortbl ;\red0\green0\blue255;\red255\green255\blue255;\red255\green255\blue0;\red0\green128\blue0;\red163\green21\blue21;\red136\green0\blue0;\red0\green0\blue0;\red0\green0\blue128;\red160\green0\blue160;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sl360\slmult1\cf1\highlight2\f0\fs22\lang1049 tesla\\ade\\ade_sensors.c\f1\lang1033  \cf3\highlight4  1053 \par
+
+\pard\sl240\slmult1\cf1\highlight2\f2\tab\f3 void\cf5  \cf6 ade_sensors_request_waveform_values\cf7 (\cf1 void\cf7 )\f2  \f3\{\par
+
+\pard\fi-547\li547\sl240\slmult1\cf5\f2\tab\tab     \cf4\f3 // \f4\lang1049\'ed\'e0\'f7\'e8\'ed\'e0\'e5\'ec \'e7\'e0\'ef\'f0\'ee\'f1 \'ec\'e3\'ed\'ee\'e2\'e5\'ed\'ed\'fb\'f5 \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'e9\line\f2\lang1033\tab     \cf6\f4\lang1049 start_processing_ade_buffer\cf7 (\cf5  \cf8 p_ade_request_data\cf7 ->\cf8 number_ade\cf5  \cf7 );\line\f2\lang1033\tab     \cf4\f4\lang1049 // \'e2\'fb\'f1\'f2\'e0\'e2\'eb\'ff\'e5\'ec \'f4\'eb\'e0\'e3 \'e7\'e0\'ef\'f3\'f1\'ea\'e0 \'ef\'f0\'ee\'f6\'e5\'f1\'f1\'e0 \'e7\'e0\'ef\'f0\'ee\'f1\'e0\line\f2\lang1033\tab     \cf9\f4\lang1049 SET_FLAG\cf7 (\cf5  \cf9 flag_SENS_REQUEST_CURRENT_WAVEFORM\cf5  \cf7 );\par
+
+\pard\sl276\slmult1\f2\lang1033\tab\f4\lang1049\}\par
+
+\pard\sl360\slmult1\f0\'dd\'f2\'e0 \'f4\'f3\'ed\'ea\'f6\'e8\'ff \'e2\'fb\'e7\'fb\'e2\'e0\'e5\'f2\'f1\'ff \'ea\'e0\'ea \'ee\'e1\'f0\'e0\'e1\'ee\'f2\'f7\'e8\'ea\'ef\'f0\'e5\'f0\'fb\'e2\'e0\'ed\'e8\'ff \'ef\'ee \'ef\'e5\'f0\'e5\'ef\'ee\'eb\'ed\'e5\'ed\'e8\'fe \'f2\'e0\'e9\'ec\'e5\'f0\'e0 \cf1\f1\lang1033 TCCD1\cf7\f4\lang1049\par
+\cf1\f0 tesla\\ade\\ade_control.c\f1\lang1033  \cf3\highlight4  3070 \par
+
+\pard\sl240\slmult1\cf9\highlight2\f2\tab\f4\lang1049 ISR\cf7 (\cf9 ADE_CTRL_TIMER_OVF_ISR\cf7 )\f2\lang1033  \f4\lang1049\{\par
+
+\pard\sl276\slmult1\cf5\f2\lang1033    \tab      \cf6\f4\lang1049 ade_sensors_request_waveform_values\cf7 ();\line\f2\lang1033\tab\f4\lang1049\}\par
+\par
+\cf0\f0\'cd\'e0\'f5\'ee\'e4\'e8\'ec \'e2\'e5\'ea\'f2\'ee\'f0 \'ef\'f0\'e5\'f0\'fb\'e2\'e0\'ed\'e8\'ff \'f1\'ee\'e1\'fb\'f2\'e8\'ff \'ef\'e5\'f0\'e5\'ef\'ee\'eb\'ed\'e5\'ed\'e8\'ff \'fd\'f2\'ee\'e3\'ee \'f2\'e0\'e9\'ec\'e5\'f0\'e0\par
+
+\pard\sa200\sl276\slmult1\cf1 tesla\\common\\board.h\f1\lang1033    \cf3\highlight4  232 \cf1\highlight2\f0\lang1049\par
+\f3 #define\cf5  \cf9 ADE_CTRL_TIMER_OVF_ISR\cf5\f4\tab\cf9\f3 COMBINE_TOKEN_4\cf7 (TC,\cf5  \cf9 ADE_CTRL_TIMER_PORT_NAME\cf7 ,\cf5  \f4\tab\tab\tab\tab\tab\tab\tab\cf9\f3 ADE_CTRL_TIMER_PORT_NUMBER\cf7 ,\cf5  \cf7 _OVF_vect)\cf1\f4\par
+\cf0\f0\'cc\'e0\'ea\'f0\'ee\'f1 \'f1\'ef\'f0\'e0\'e2\'e0 - \'fd\'f2\'ee\f1\lang1033  \cf9\f0\lang1049 TCD1_OVF_vect\cf5   \cf9\fs19 TCD1_OVF_vect\cf0\f1\fs22\lang1033 :\f0\lang1049\par
+\cf1\f3 #define\cf5  \cf9 ADE_CTRL_TIMER_PORT_NAME\cf5\f4\tab\tab\cf7\f3 D\cf5  \cf4 // \f4\'ef\'ee\'f0\'f2 \'f2\'e0\'e9\'ec\'e5\'f0\'e0 (\'e1\'f3\'ea\'e2\'e0: [C,D,E,F])\line\cf1 #define\cf5  \cf9 ADE_CTRL_TIMER_PORT_NUMBER\cf5\tab\tab\cf7 1\cf5  \cf4 // \'ed\'ee\'ec\'e5\'f0 \'f2\'e0\'e9\'ec\'e5\'f0\'e0 (\'f6\'e8\'f4\'f0\'e0: [0,1,2])\par
+\cf1\f3 #define\cf5  \cf9 ADE_CTRL_TIMER\cf5\f2\lang1033\tab\tab\cf9\f3\lang1049 COMBINE_TOKEN_3\cf7 (TC,\cf5  \cf9 ADE_CTRL_TIMER_PORT_NAME\cf7 ,\cf5  \f2\lang1033\tab\tab\tab\tab\tab\tab\tab\cf9\f3\lang1049 ADE_CTRL_TIMER_PORT_NUMBER\cf7 )\cf4\f4\par
+\cf1\par
+\cf0\f0\'c2\'f1\'b8 \'e2\'ec\'e5\'f1\'f2\'e5 \'e2 \'f4\'e0\'e9\'eb\'e5\cf1  include\\avr\\iox256a3u.h\f1\lang1033   \cf3\highlight4\f0\lang1049  7349\f1\lang1033  \cf1\highlight2\par
+\f0\fs19 #define\cf5  \cf9 TCD1_OVF_vect\cf5       \cf7 _VECTOR(83)\cf5   \cf4 /* Overflow Interrupt */\par
+
+\pard\sa200\sl360\slmult1\cf0\f5\fs22\lang1049\'cd\'e0\'e9\'e4\'b8\'ec, \'ea\'e0\'ea \'fd\'f2\'ee\'f2 \'f2\'e0\'e9\'ec\'e5\'f0 \'e7\'e0\'ef\'f3\'f1\'ea\'e0\'e5\'f2\'f1\'ff\f6\lang1033 . \f5\lang1049\'d2\'e0\'e9\'ec\'e5\'f0 \'f3\'ef\'f0\'e0\'e2\'eb\'ff\'e5\'f2\'f1\'ff \'e8\'e7 \cf1 tesla\\common\\hardware.c\par
+
+\pard\sa200\sl276\slmult1\f3\lang1033 void\cf5  \cf6 ade_ctrl_timer_hardware_init\cf7 (\cf1 void\cf7 )\line\cf1 void\cf5  \cf6 ade_ctrl_timer_run\cf7 (\cf1\i uint16_t\cf5\i0  \cf8 period\cf7 ,\cf5  \cf1\i uint16_t\cf5\i0  \cf8 divider\cf7 )\line\cf1 void\cf5  \cf6 ade_ctrl_timer_stop\cf7 (\cf1 void\cf7 )\par
+\cf0\f6\par
+\cf3\highlight4\f4\lang1049  220 \cf6\highlight2  \'e0\f3\lang1033 de_ctrl_timer_hardware_init\cf0\f1  \f0\lang1049\'e7\'e0\'ef\'f3\'f1\'f2\'e8\'f2\'f1\'ff \'e2 \cf1\f3 static\cf5  \cf1 void\cf5  \cf6 ade_handler_init\cf7 (\cf1 void\cf7 )\f4 . \f5\'d3\'f1\'f2\'e0\'ed\'e0\'e2\'eb\'ec\'e2\'e0\'e5\'f2\'ff \'ef\'ee\'f1\'f2\'ee\'ff\'ed\'ed\'e0\'ff \'f0\'e0\'e1\'ee\'f2\'e0 \'f2\'e0\'e9\'ec\'e5\'f0\'e0 \'f1 \'f4\'ee\'f0\'ec\'e8\'f0\'ee\'e2\'e0\'ed\'e8\'e5\'ec \'ef\'f0\'e5\'f0\'fb\'e2\'e0\'ed\'e8\'ff\cf0  \'ef\'ee \'f1\'ee\'e1\'fb\'f2\'e8\'fe \'ef\'e5\'f0\'e5\'ef\'ee\'eb\'ed\'e5\'ed\'e8\'ff\par
+\cf1\f4\par
+
+\pard\sl360\slmult1\f0 tesla\\ade\\ade_control.c\f1\lang1033  \cf3\highlight4  \f0\lang1049  2688 \f1\lang1033  \par
+
+\pard\sl276\slmult1\cf1\highlight2\f3\lang1049 static\cf5  \cf1 inline\cf5  \cf1 void\cf5  \cf6 enable_timer_request_current_waveform\cf7 (\cf1 void\cf7 )\f4  \f3\{\par
+\cf6\f4\tab\tab\tab\tab\tab\tab\f3 ade_ctrl_timer_run\cf7 (\cf5  \cf9 PERIOD_VALUE_TIMER\cf7 ,\cf5  \f4\tab\tab\tab\tab\tab\tab\tab\tab\cf9\f3 DIVIDER_REQUEST_CURRENT_WAVEFORM\cf5  \cf7 );\par
+\f4\tab\tab\tab\tab\tab\tab\f3\}\cf1\f4\par
+
+\pard\sa200\sl276\slmult1\par
+\f3\fs19 static\cf5  \cf1 void\cf5  \cf6 enable_capture_current_waveform\cf7 (\cf1 void\cf7 )\f4  \f3\{\line\cf5\tab\cf6 wf_clear_data_array\cf7 ();\line\cf5\tab\cf6 init_current_waveform_ade_buffer\cf7 ();\line\cf5\tab\cf6 enable_timer_request_current_waveform\cf7 ();\cf5\tab\cf9 SET_FLAG\cf7 (\cf5  \cf9 flag_CTRL_MONITORING_TRANSITION_PROCESS_IS_RUN\cf5  \cf7 );\par
+\cf1\f4\fs22\par
+\par
+\par
+\par
+\cf7\f5\'d0\'e5\'e3\'e8\'f1\'f2\'f0\'fb \'ec\'e3\'ed\'ee\'e2\'e5\'ed\'ed\'fb\'f5 \'f2\'ee\'ea\'ee\'e2 \'e8 \'ed\'e0\'ef\'f0\'ff\'e6\'e5\'ed\'e8\'e9 \'ee\'e1\'fa\'ff\'e2\'eb\'e5\'ed\'fb \'e2 \cf1 tesla\f6\lang1033 /\f5\lang1049 ade\f6\lang1033 /\f5\lang1049 ade_registers.h\par
+
+\pard\sl276\slmult1\cf2\highlight4\f2\fs20\lang1033  98 \cf1\highlight2\tab\f4\lang1049 #define\cf5  \cf9 ADE_ADE_IAWV\cf5\tab\cf7 ((\cf1\i uint16_t\cf7\i0 )0xE50C)\cf5   \cf4 // Instantaneous value of Phase A current\cf7\par
+\cf1\f2\lang1033\tab\f4\lang1049 #define\cf5  \cf9 ADE_ADE_IBWV\cf5\tab\cf7 ((\cf1\i uint16_t\cf7\i0 )0xE50D)\cf5   \cf4 // Instantaneous value of Phase B current\cf7\par
+\cf1\f2\lang1033\tab\f4\lang1049 #define\cf5  \cf9 ADE_ADE_ICWV\cf5\tab\cf7 ((\cf1\i uint16_t\cf7\i0 )0xE50E)\cf5   \cf4 // Instantaneous value of Phase C current\par
+\par
+\cf2\highlight4\f2\lang1033  102 \cf1\highlight2\tab\f4\lang1049 #define\cf5  \cf9 ADE_INWV\cf5\tab\cf7 0xE50F\cf5   \cf4 // \i Instantaneous value of neutral current\cf7\i0\par
+\cf1\f2\lang1033\tab\f4\lang1049 #define\cf5  \cf9 ADE_VAWV\cf5\tab\cf7 0xE510\cf5   \tab\cf4 // Instantaneous value of Phase A voltage.\cf7\par
+\cf1\f2\lang1033\tab\f4\lang1049 #define\cf5  \cf9 ADE_VBWV\cf5\tab\cf7 0xE511\cf5   \tab\cf4 // Instantaneous value of Phase B voltage.\cf7\par
+\cf1\f2\lang1033\tab\f4\lang1049 #define\cf5  \cf9 ADE_VCWV\cf5\tab\cf7 0xE512\cf5   \tab\cf4 // Instantaneous value of Phase C voltage.\par
+\par
+\cf0\f5\fs22\'cf\'e5\'f0\'e5\'ee\'ef\'f0\'e5\'e4\'e5\'eb\'e5\'ed\'e8\'e5 \cf7\'ec\'e3\'ed\'ee\'e2\'e5\'ed\'ed\'fb\'f5 \'f2\'ee\'ea\'ee\'e2 \cf1 tesla\\ade\\ade_driver.c\cf7 . \'cd\'e0\'ef\'f0\'ff\'e6\'e5\'ed\'e8\'ff \'ed\'e5 \'ef\'e5\'f0\'e5\'ee\'ef\'f0\'e5\'e4\'e5\'eb\'e5\'ed\'fb \'e8 \'ed\'e5 \'e8\'f1\'ef\'ee\'eb\'fc\'e7\'f3\'fe\'f2\'f1\'ff \cf4\f4\fs20  \par
+\cf2\highlight4\f2\lang1033  \f4\lang1049 62\f2\lang1033  \cf5\highlight2\f3\fs19\lang1049\tab\cf1\fs20 const\cf5  \cf1 uint16_t\cf5  \cf8 REG_ADDR_FRAME_00\cf5  \cf7 =\cf5  \cf9 ADE_ADE_IAWV\cf7 ;\par
+\cf5\tab\cf1 const\cf5  \cf1 uint16_t\cf5  \cf8 REG_ADDR_FRAME_01\cf5  \cf7 =\cf5  \cf9 ADE_ADE_IBWV\cf7 ;\par
+\cf5\tab\cf1 const\cf5  \cf1 uint16_t\cf5  \cf8 REG_ADDR_FRAME_02\cf5  \cf7 =\cf5  \cf9 ADE_ADE_ICWV\cf7 ;\par
+\cf0\highlight0\f2\fs22\lang9\par
+}
+ 
